@@ -1,0 +1,24 @@
+# Update directory security
+RewriteEngine On
+
+# Deny access to backup files
+<Files "*.sql">
+    Require all denied
+</Files>
+
+# Deny access to migration files from web
+<FilesMatch "\.(php)$">
+    <RequireAll>
+        Require all denied
+        Require local
+    </RequireAll>
+</FilesMatch>
+
+# Allow only index.php
+<Files "index.php">
+    Require all granted
+</Files>
+
+# Deny access to sensitive directories
+RedirectMatch 404 /admin/update/backups/
+RedirectMatch 404 /admin/update/migrations/

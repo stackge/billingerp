@@ -1,0 +1,7 @@
+# Ignore all files in the root directory except for the following
+/admin/field2_generator.php
+/admin/field_generator.php
+/admin/generate_migration.php
+/composer.json
+/composer.lock
+/index.php
